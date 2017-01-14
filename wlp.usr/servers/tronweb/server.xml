@@ -1,0 +1,47 @@
+<server>
+
+	<featureManager>       
+	    <feature>ssl-1.0</feature>
+	    <feature>jsp-2.3</feature>
+	    <feature>servlet-3.1</feature>
+	    <feature>appSecurity-2.0</feature>
+	    <feature>openidConnectClient-1.0</feature>
+	    <feature>localConnector-1.0</feature>
+    	<feature>ejbLite-3.2</feature>
+    	<feature>jpa-2.1</feature>
+	    <feature>websocket-1.1</feature>
+	    <feature>jsonp-1.0</feature>
+	    <feature>jsf-2.2</feature>
+	    <feature>cdi-1.2</feature>
+    </featureManager>
+	
+	<dataSource id="DefaultDataSource">
+		<jdbcDriver libraryRef="derbyLib"/>
+		<properties.derby.embedded createDatabase="create" databaseName="memory:userdb"/>
+	</dataSource>
+	<library id="derbyLib">
+		<fileset dir="${shared.resource.dir}" includes="derby.jar"/>
+	</library>
+    
+    <!-- To access this server from a remote client add a host attribute to the following element, e.g. host="*" -->
+    <httpEndpoint host="localhost" httpPort="9080" httpsPort="9443" id="defaultHttpEndpoint"/>
+    
+    <!-- How to get and import google.com certificate: 
+    http://stackoverflow.com/questions/3685548/java-keytool-easy-way-to-add-server-cert-from-url-port
+    -->
+    <keyStore id="defaultKeyStore" password="{xor}OTM2L25pOTM2L25p"/>
+    
+    <openidConnectClient authorizationEndpointUrl="https://accounts.google.com/o/oauth2/auth" clientId="195003440762-uek7cno9t5iudmg7690dbk7htfeo81r3.apps.googleusercontent.com" clientSecret="46J9jsty_tf4nmZ33rrcwg3K" id="googleRP" issuerIdentifier="accounts.google.com" jwkEndpointUrl="https://www.googleapis.com/oauth2/v2/certs" scope="openid profile email" signatureAlgorithm="RS256" tokenEndpointUrl="https://www.googleapis.com/oauth2/v3/token" userIdentityToCreateSubject="email"/>
+
+    <!-- Automatically expand WAR files and EAR files -->
+    <applicationManager autoExpand="true"/>
+    <applicationMonitor updateTrigger="mbean"/>
+
+    <webApplication contextRoot="/webtron" id="TestProject" location="TestProject.war" name="TestProject">
+    	<application-bnd>
+    		<security-role name="All Role">
+    			<special-subject type="ALL_AUTHENTICATED_USERS"/>
+    		</security-role>
+    	</application-bnd>
+    </webApplication>
+</server>

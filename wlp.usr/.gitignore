@@ -1,0 +1,6 @@
+*.log
+*.jar
+logs/
+tranlog/
+workarea/
+derby.txt
