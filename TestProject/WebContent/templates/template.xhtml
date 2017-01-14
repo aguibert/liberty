@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <h:head>
+   		<ui:include src="header.xhtml"/>
+    </h:head>
+    <h:body>
+    	<div>
+			<ui:insert name="custom_css"/>
+		</div>
+		
+    	<ui:include src="nav.xhtml"/>
+
+        <div id="content">
+        	<ui:insert name="content"/>
+        </div>
+
+        <div id="bottom">
+        <ui:insert name="bottom">
+	      <footer class="footer">
+	      	<div class="container">
+	          <center><h3 class="text-muted">Powered by Liberty</h3></center>
+	        </div>
+	      </footer>
+        </ui:insert>
+        </div>
+        
+        <div id="common_scripts">
+        <ui:insert name="common_scripts">
+        	<!-- Bootstrap core JavaScript
+		    ================================================== -->
+		    <!-- Placed at the end of the document so the pages load faster -->
+		    <script src="js/jquery.min.js"></script>
+		    <script src="js/bootstrap.min.js"></script>
+		    <script src="https://apis.google.com/js/platform.js" async="async" defer="defer"></script>
+		    <script src="js/common.js"/>
+        </ui:insert>
+        </div>
+        <div>
+        <ui:insert name="custom_scripts"></ui:insert>
+        </div>
+    </h:body>
+</html>

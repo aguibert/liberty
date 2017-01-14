@@ -1,0 +1,31 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <ui:composition>
+	    <nav class="navbar navbar-inverse navbar-fixed-top">
+	      <div class="container">
+	        <div class="navbar-header">
+	        	<a class="navbar-brand">Web Tron</a>
+	        </div>
+	        <div class="collapse navbar-collapse">
+	        	<c:set var="u" value="#{userSessionBean}"/>
+	        	<c:choose>
+	        		<c:when test="#{u.isLoggedIn()}">
+	        			<h4 id="login-yes" class="navbar-text navbar-right">Welcome #{u.displayName}</h4>
+	        		</c:when>
+	        		<c:otherwise>
+	        			<div id="login-no" class="navbar-right">
+				        	<a href="login" class="btn" role="button">
+				        		<img src="images/btn_google_signin_dark_normal_web.png"/>
+				        	</a>
+			        	</div>
+	        		</c:otherwise>
+	        	</c:choose>
+	        </div>
+	      </div>
+	    </nav>
+	</ui:composition>
+</html>
+	   

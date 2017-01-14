@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <body>
+        <ui:composition template="templates/template.xhtml">
+            <ui:define name="custom_css">
+	        	<!-- Custom styles for this template -->
+	    		<link href="css/jumbotron.css" rel="stylesheet"/>
+        	</ui:define>
+            <ui:define name="content">
+			    <div class="jumbotron">
+			<!--      style="background-image:url('images/tron_header.jpg');background-position: center; "> -->
+					<img src="images/tron_banner.jpg" class="img-fluid" style="height:auto"/>
+			    </div>
+			
+			      <div class="container">
+			        <h1>Web Tron</h1>
+			        <p>
+			        Based on the movie Tron Legacy.
+			        Web Tron is built using WebSphere Liberty, bootstrap, and jquery. Authentication is performed using Google SSO.
+			        </p>
+			        <a class="btn btn-success btn-lg col-md-2 col-md-offset-5" role="button" href="login">Play!</a>
+			      </div>
+            </ui:define>
+        </ui:composition>
+    </body>
+</html>
